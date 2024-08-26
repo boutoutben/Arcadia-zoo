@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}accuil{% endblock %}
+{% block style %}img/homeBackground.jpg{% endblock style %}
+{% block content %}
+    <section>
+        <div class="presentation">
+            <h2 class="sub-title text-center">Présentation du zoo</h2>
+            <div class="description_img">
+                <p class="description">Le zoo Arcadia se situe en France du coté de la forêt de Brocéliande, en bretagne. Tout un nombre d'animal sont présent parmis les différents habitats(savane, jungle, marais), leur santé est très important pour nous. Tous les jours, des vétérinaires effectues des contrôles sur tous les animaux avant l'ouverture par question de sécurité. La nourriture est calculée au gamme près, pour garantir une bonne qualité de vie aux animaux. Le zoo se porte super bien et les animaux sont les plus heureux, tout cela est idéal pour vous accuillir et vous proccuré une belle expérience.<p>
+                <img src="img/imgPrésentation.jpg" width="100%" height="80%" class="img_presentation"> 
+            </div>
+        </div>
+
+        <div class="ele-zoo">
+            <div class="grid-items habitats">
+                <h3 class="sub-title">Habitats</h3>
+                <p class="description-grid">Chaque habitat est construit pour rendre les animaux heureux et qu'il ne manque de rien. L'entretien de ses derniers est notre priorité, rien peut nous échapper. Chaque jour, des employés s'occupe de ces dernières et les nettoie ou les amménages pour le bon confort des animaux.</p>
+            </div>
+            <div class="grid-items animaux">
+                <h3 class="sub-title">Animaux</h3>
+                <p class="description-grid">Tout les animaux sont heureux, les employés et les vétérinaires font tout pour prendre soin des animaux.Chaque jour, de la nourriture leur sont distribué en fonction de leur état et de leur goût. Avec cela, ils ne manque de rien, même pas l'amour, celle-ci est directement donner pas les employés et vétérinaires.</p>
+            </div>
+            <div class="grid-items services">
+                <h3 class="sub-title">Services</h3>
+                <p class="description-grid">Plusieur services sont mis à disposition pour vous afin que vous passais le meilleur momment possible. Nous retrouvons de la restauration, la découvert du zoo et des activitées qui arrive au fur et à messure. Toute les expérience sont faite pour vous fournir les meilleurs sensation possible</p>
+            </div>
+        </div> 
+        <div class="scheduleDiv grid-items">
+            <div class="button-title ">
+                <h3 class='avisTitle sub-title'>Horraires zoo</h3>
+                {% if is_granted("ROLE_ADMINISTRATION") %}
+                    <button class="btn-horraire" onClick="window.location.href = '/modif-schedulle';">Modifier</button>
+                {% endif %}
+            </div>
+            <table class="scheduleRow">
+                {% for schedule in schedule %}
+                    <tr>
+                        <th class="scheduleFont">{{schedule.days}}: </th>
+                        <td class="scheduleFont">{{schedule.schedule}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="avisZoo">
+            <div class="button-title">
+                <h3 class='sub-title'>Les avis du parc</h3>
+                <button class="btn-avis" onClick="window.location.href = '/avis/index';" width="10%">Mettre un avis </button>
+            </div>
+            {% if avis == null %}
+                <p class="text">Il n'y a pas encore d'avis mais vous pouvez en mettre un.</p>
+            {% endif %}
+            
+            {% for avis in avis %}
+                <div class="avis">
+                    <p class="pseudo"><b>{{avis.pseudo}}:</b></p>
+                    <p class="avis-text">{{avis.avis}}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+{% endblock content %}

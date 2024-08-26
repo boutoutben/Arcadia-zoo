@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace administration{% endblock %}
+
+{% block content %}
+    <section>
+        <div class='title_administration'>
+            <h1 class='titleAdministrationText'>Espace administration</h1>
+        </div>
+        <div class="formType">
+            <h1 class="sub-title">Créer un(e) nouveaux (nouvelle) employé(e) ou vétérinaire</h1>
+            {{form_start(form)}}
+                    <div class="radioEmploie">
+                        <div class="employer">
+                            {{form_label(form.employer)}}{{form_widget(form.employer,{'full_name': "choix"})}}
+                        </div>
+                        <div class="veterinaire"> 
+                            {{form_label(form.veterinaire)}}{{form_widget(form.veterinaire,{'full_name': "choix"})}}
+                        </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>{{form_label(form.username)}}</td>
+                            <td>{{form_widget(form.username,{'full_name': "username"})}} </td>
+                        </tr>
+                        <tr>
+                            <td>{{form_label(form.password)}}</td>
+                            <td>{{form_widget(form.password,{'full_name': "password"})}} </td>
+                        </tr>
+                    </table>
+                    <button type="submit" class='btn-form'>Inscription</button>
+            
+            {{form_end(form)}}  
+        </div>
+        <div class="formType" id="rappportsVet">
+            <h1 class="sub-title text-center">Vue sur les rapports des vétérinaires</h1>
+            {{form_start(filterAvisAdministration)}}
+                <table>
+                    <tr>
+                        <td>{{form_label(filterAvisAdministration.nameAnimal)}}</td>
+                        <td>{{form_widget(filterAvisAdministration.nameAnimal, {"full_name":"name"})}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>or</b></td>
+                    </tr>
+                    <tr>
+                        <td>{{form_label(filterAvisAdministration.date)}}</td>
+                        <td>{{form_widget(filterAvisAdministration.date, {"full_name":"date"})}}</td>
+                    </tr>
+                </table>
+                <button type="submit" class='btn-form'>Générer</button>
+            {{form_end(filterAvisAdministration)}}
+        </div>
+            {% if rapportVeterinaire != null %}
+                <div class='formType'>
+
+                    {% for rapport in rapportVeterinaire %}
+                        <div class="ViewRapportVet">
+                            <p class="rapportDate">{{rapport.date.format("d/m/Y")}}</p>
+                            <p>{{rapport.detail}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        <div class='dashbord'>
+            <h1 class="sub-title">Dashbord</h1>
+            <div class="viewAnimaux">
+                {% for animal in allAnimaux %}
+                    <div class="detailForVet">
+                        <p class="text-center">{{animal.name}}: {{animal.Races.label}}</p>
+                        <p class="text-center"> {{animal.nbClick}}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

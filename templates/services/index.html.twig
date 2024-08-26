@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Services{% endblock title %}
+
+{% block style %}img/servicesBackground.jpg{% endblock style %}
+
+{% block content %}
+
+    <section>
+        {% if is_granted("ROLE_EMPLOYER") or is_granted("ROLE_ADMINISTRATION")%}
+            <div class="modifier" onClick="btnModif('/modifServices/index')">
+                <button id="btn-modif">Modifier</button>
+            </div>
+        {% endif %}
+        <h1 class="text-center title">Nos services présent dans le zoo</h1>
+        <div class='allEle'>
+            {% for service in allServices %}
+                <div class="grid-ele service">
+                    <h3 class="sub-title">{{service.name}}</h3>
+                    <div class="description_img">
+                        <p class="text">{{service.description}}</p>
+                        <img class="serviceImg" src="img/{{service.img}}" width="60%" height="100%">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <script src='../js/btnModif.js'></script>
+{% endblock content %}

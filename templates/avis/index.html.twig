@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis{% endblock %}
+
+{% block content %}
+<section>
+    <div class='avis-title'>
+        <h1 class='title-text'><b>Avis</b></h1>
+    </div>
+    <div class="formType">
+        <h1 class="sub-title">Mettez un avis</h1>
+        {{form_start(form)}}
+            <table>
+                <tr>
+                    <td>{{form_label(form.pseudo)}}</td>
+                    <td>{{form_widget(form.pseudo, {"full_name": "pseudo"})}}</td>
+                    {% if form.pseudo.vars.errors %}
+                        <div class="error">
+                            {{ form.pseudo.vars.errors }}
+                        </div>
+                    {% endif %}
+                    
+                </tr>
+                <tr>
+                    <td>{{form_label(form.avis)}}</td>
+                    <td>{{form_widget(form.avis, {"full_name":"avis"})}}</td>
+                    {% if form.avis.vars.errors %}
+                        <div class="error">
+                            {{ form.avis.vars.errors }}
+                        </div>
+                    {% endif %}
+                </tr>
+            </table>
+            {{ form_rest(form) }}
+            <button type="submit" class="btn-form">Créer</button>
+        {{form_end(form)}}
+    </div>
+<section>
+{% endblock %}

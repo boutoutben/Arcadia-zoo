@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}contact{% endblock %}
+
+{% block content %}
+    <section>
+        <div class='titleContact'>
+            <h1 class="bigTitleBackground">Contact</h1>
+        </div>
+        <div class='text-center sub-title'>
+        </div>
+        <div class="formType">
+            <br>
+            <h2>Envoyer votre message</h2>
+            <br>
+            {{form_start(form)}}
+                <table>
+                    <tr>
+                        <th>{{form_label(form.emailUser)}}</th>
+                        <td>{{form_widget(form.emailUser, {"full_name":"emailUser"})}}</td>
+                    </tr>
+                    <tr>
+                        <th>{{form_label(form.titleMessage)}}</th>
+                        <td>{{form_widget(form.titleMessage, {"full_name":"title"})}}</td>
+                    </tr>
+                    <tr>
+                        <th>{{form_label(form.message)}}</th>
+                        <td>{{form_widget(form.message, {"full_name":"message"})}}</td>
+                    </tr>
+                </table>
+                <button type='submit' class="btn-form">Envoyer</button>
+            {{form_end(form)}}
+            
+        </div>
+        
+    </section>
+    
+{% endblock content %}
+
+

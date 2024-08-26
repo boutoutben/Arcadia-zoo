@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ModifSchedulleController!{% endblock %}
+
+{% block content %}
+    <section>
+        <div class='title_modifSchedule'>
+                <h1 class='titleModifScheduleText'>Espace administration</h1>
+            </div>
+        <div class="formType">
+            <h1 class="sub-title">modifier les horraires</h1>
+            {{form_start(form)}}
+                <table>
+                    <tr>
+                        <td>{{form_label(form.days)}}</td>
+                        <td>{{form_widget(form.days, {"full_name":"days"})}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{form_label(form.schedule)}}</td>
+                        <td>{{form_widget(form.schedule,{"full_name":"schedule"})}}</td>
+                    </tr>
+                </table>
+                <button type="submit" class="btn-form">Mettre à jour</button>
+            {{form_end(form)}}
+        </div>
+    </section>
+{% endblock %}
