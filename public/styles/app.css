@@ -111,6 +111,15 @@
     color: white;
 }
 
+.button-title-schedule{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.schedule-title{
+    margin-left: 35%;
+}
+
 .scheduleRow{
     display: flex;
     flex-direction: row;
@@ -125,9 +134,10 @@
 
 .btn-horraire{
     color: white;
-    margin-left: 27%;
+    margin-right: 2%;
     margin-top: 1%;
-    background-color: #255316;
+    width: 10%;
+    background-color: #2f302f;
     border-radius: 15px;
 }
 
@@ -176,7 +186,7 @@
 }
 
 .valid-avis{
-    background-color: #325f20;
+    background-color: #92d478;
     margin:10% 20%;
     color: white;
 }
