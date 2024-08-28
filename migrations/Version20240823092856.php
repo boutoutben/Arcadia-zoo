@@ -20,8 +20,10 @@ final class Version20240823092856 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql("DROP INDEX id_habitat,id_race,id_last_rapport ON animal ");
-        $this->addSql('DROP INDEX id_animal ON rapport_veterinaire');
+        $this->addSql("ALTER TABLE animal DROP INDEX id_habitat");
+        $this->addSql("ALTER TABLE animal DROP INDEX id_race");
+        $this->addSql("ALTER TABLE animal DROP INDEX id_last_rapport");
+        $this->addSql('ALTER TABLE rapport_veterinaire DROP INDEX id_animal');
     }
 
 }
