@@ -31,53 +31,11 @@ class CreateAdminCommand extends Command
         parent::__construct();
     }
 
-    protected function configure(): void
-    {
-        $this
-            ->addArgument('username',InputArgument::REQUIRED)
-            ->addArgument('password', InputArgument::REQUIRED)
-        ;
-    }
-
-    protected function initialize(InputInterface $input, OutputInterface $output):void
-    {
-        $this->io = new SymfonyStyle($input, $output);
-        if(
-            null != $input->getArgument("username") &&
-            null != $input->getArgument("password")
-        ){
-            return;
-        }
-
-        $this->io->text("Add admin commend interactive wizard");
-        $this->askArgument($input, 'username');
-        $this->askArgument($input, "password");
-    }
-
-    private function askArgument(InputInterface $input, string $name, bool $hidden = false) :void 
-    {
-        $value = strval($input->getArgument($name));
-        if( "" != $value){
-            $this->io->text((sprintf('><info>%s</info>:%s', $name, $value)));
-        }else{
-            $value = match($hidden){
-                false => $this->io->ask($name),
-                default => $this->io->ask($name)
-            };
-        }
-        $input->setArgument($name, $value);
-
-    }
-
-    protected function interact(InputInterface $input, OutputInterface $output) {
-        parent::interact($input,$output);
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = new User();
-        $user->setUsername(strval($input->getArgument('username')));
-        $user->setPassword($this->passwordHasher->hashPassword($user,strval($input->getArgument("password"))));
+        $user->setUsername("Jose.direction@gmail.com");
+        $user->setPassword($this->passwordHasher->hashPassword($user,"Jose123!"));
         $user->setRoles(["ROLE_EMPLOYER","ROLE_VETERINAIRE","ROLE_ADMINISTRATION"]);
         $this->em->persist($user);
         $this->em->flush();
