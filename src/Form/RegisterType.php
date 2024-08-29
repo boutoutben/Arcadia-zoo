@@ -43,7 +43,8 @@ class RegisterType extends AbstractType
                 "label" =>"password: ",
                 "required"=>true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    "id"=>"password"
                 ]
             ])
         ;

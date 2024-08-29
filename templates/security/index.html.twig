@@ -24,13 +24,15 @@
                     </tr>
                     <tr>
                         <th>{{ form_label(form.password) }}</th>
-                        <th>{{ form_widget(form.password,{'full_name':'password'}) }}</th>
+                        <th>{{ form_widget(form.password,{'full_name':'password',"id":"password"}) }}</th>
+                        <td><span class="password-toggle-icon"><i class="fas fa-eye-slash" onClick="showAndHide()"></i></span></td>
                     </tr> 
                 </table>
                 <button type="submit" class='btn-form'>Connection</button>
             {{form_end(form)}}
         </div>
     </section>
+    <script src="/js/hideAndShow.js"></script>
 {% endblock  content %}
 
 

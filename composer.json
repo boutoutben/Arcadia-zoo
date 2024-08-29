@@ -44,6 +44,7 @@
         "symfony/string": "7.1.*",
         "symfony/translation": "7.1.*",
         "symfony/twig-bundle": "7.1.*",
+        "symfony/ux-toggle-password": "^2.19",
         "symfony/ux-turbo": "^2.18",
         "symfony/validator": "7.1.*",
         "symfony/web-link": "7.1.*",
@@ -92,10 +93,7 @@
             "@auto-scripts"
         ],
         "compile": [
-           "php bin/console doctrine:migrations:migrate",
-           "php bin/console app:create-admin",
-           "php bin/console app:create_habitat_schedule",
-           "php bin/console app:createServices"
+           "php bin/console doctrine:migrations:migrate"
        ]
     },
     "conflict": {

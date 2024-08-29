@@ -12,15 +12,13 @@
                 <button id="btn-modif">Modifier</button>
             </div>
         {% endif %}
-        <h1 class="text-center title">Nos services présent dans le zoo</h1>
+        <h1 class="text-center title">Nos services présentent dans le zoo</h1>
         <div class='allEle'>
             {% for service in allServices %}
                 <div class="grid-ele service">
                     <h3 class="sub-title">{{service.name}}</h3>
-                    <div class="description_img">
-                        <p class="text">{{service.description}}</p>
-                        <img class="serviceImg" src="img/{{service.img}}" width="60%" height="100%">
-                    </div>
+                    <img class="serviceImg" src="img/{{service.img}}">
+                    <p class="text">{{service.description}}</p>
                 </div>
             {% endfor %}
         </div>
