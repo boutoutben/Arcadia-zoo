@@ -45,22 +45,22 @@ session_start();
                 <img src='../../img/logo.png' class="logo">
                 <h3 class='zoo_name'> arcadia zoo </h3>
                 <div class="link">
-                    <div class="link-navbar" onClick = "window.location.href = `/`;"> accuil</div>
-                    <div class="link-navbar" onClick = "window.location.href = '/services';">services</div>
-                    <div class="link-navbar" onClick = "window.location.href=`/habitats`;">habitats</div>
+                    <div class="link-navbar" onClick = "window.location.href = `/`;"> Acceuille</div>
+                    <div class="link-navbar" onClick = "window.location.href = '/services';">Services</div>
+                    <div class="link-navbar" onClick = "window.location.href=`/habitats`;">Habitats</div>
                     {% if is_granted('ROLE_VETERINAIRE') or is_granted("ROLE_EMPLOYER") %}
-                        <div class="link-navbar" onClick = "window.location.href = '/logout';">déconnection</div>
+                        <div class="link-navbar" onClick = "window.location.href = '/logout';">Déconnection</div>
                     {% else %}
-                        <div class="link-navbar" onClick = "window.location.href = '/login';">connection</div>
+                        <div class="link-navbar" onClick = "window.location.href = '/login';">Connection</div>
                     {% endif %}
                     {% if is_granted("ROLE_ADMINISTRATION") %}
-                        <div class="link-navbar" onClick="window.location.href = '/administration';">espace administration</div>
+                        <div class="link-navbar" onClick="window.location.href = '/administration';">Espace administration</div>
                     {% elseif (is_granted("ROLE_EMPLOYER" ))and not(is_granted("ROLE_ADMINISTRATION")) %}
-                         <div class="link-navbar" onClick = "window.location.href = `/employee`;">espace employée</div>
+                         <div class="link-navbar" onClick = "window.location.href = `/employee`;">Espace employée</div>
                     {% elseif (is_granted("ROLE_VETERINAIRE" ))and not(is_granted("ROLE_ADMINISTRATION")) %}
-                         <div class="link-navbar" onClick = "window.location.href = `/veterinaire`;">espace vétérinaire</div>
+                         <div class="link-navbar" onClick = "window.location.href = `/veterinaire`;">Espace vétérinaire</div>
                     {% else %}
-                        <div class="link-navbar" onClick = "window.location.href = `/message_zoo`;">contact</div>
+                        <div class="link-navbar" onClick = "window.location.href = `/message_zoo`;">Contact</div>
                     {% endif %} 
                 </div>
             </div>
