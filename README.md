@@ -20,6 +20,8 @@ Avant de déployer l'application en local, assurez-vous d'avoir les éléments s
 - git clone https://github.com/boutoutben/Arcaria-zoo/
 - composer install
 - heroku login
+- cd Arcaria-zoo
+- git init
 - heroku create arcadia-zoo
 - heroku git:remote -a arcadia-zoo
 - heroku buildpacks:add heroku/php
