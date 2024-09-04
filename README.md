@@ -26,6 +26,8 @@ Avant de déployer l'application en local, assurez-vous d'avoir les éléments s
 - heroku git:remote -a arcadia-zoo
 - heroku buildpacks:add heroku/php
 - heroku addons:create jawsdb:kitefin 
+- heroku config:set DATABASE_URL="JAWSDB_URL": pour l'avoir, il faut faire heroku config
+- heroku config:set APP_ENV=prod	
 - git add .
 - git commit -a "commit-name"
 - git push heroku main
