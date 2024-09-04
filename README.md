@@ -17,14 +17,13 @@ Avant de déployer l'application en local, assurez-vous d'avoir les éléments s
 
 ## Installation 
 
-git clone https://github.com/boutoutben/Arcaria-zoo/
-heroku login
-heroku create arcadia-zoo
-heroku git:remote -a arcadia-zoo
-heroku buildpacks:add heroku/php
-heroku addons:create jawsdb:kitefin 
-git add .
-git commit -a "commit-name"
-git push heroku main
-
-heroku open
+- git clone https://github.com/boutoutben/Arcaria-zoo/
+- heroku login
+- heroku create arcadia-zoo
+- heroku git:remote -a arcadia-zoo
+- heroku buildpacks:add heroku/php
+- heroku addons:create jawsdb:kitefin 
+- git add .
+- git commit -a "commit-name"
+- git push heroku main
+- heroku open
