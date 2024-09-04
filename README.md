@@ -17,7 +17,7 @@ Avant de déployer l'application en local, assurez-vous d'avoir les éléments s
 
 ## Installation 
 
-- git clone https://github.com/boutoutben/Arcaria-zoo/
+- git clone https://github.com/boutoutben/Arcaria-zoo
 - composer install
 - heroku login
 - cd Arcaria-zoo
