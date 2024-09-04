@@ -11,7 +11,7 @@
                 <button id="btn-modif">Modifier</button>
             </div>
         {% endif %}
-        <h1 class="title">Liste de tous nos animaux</h1>
+        <h1 class="title">Liste des animaux de {{habitat[0].name}}</h1>
         {% if animalData == null %}
             <p class="text">Il n'y a pas encore d'animaux, mais cela ne va pas tarder.</p>
             <p class="text">Toutefois, vous pouvez contacter le zoo pour plus d'informations ou suivre les actualités.</p>
@@ -23,7 +23,7 @@
                 <div>
                     <div class=" presentation_animaux hidden ">
                         <button type="button" class="close icon-50" aria-label="Close" ><span aria-hidden="true" onClick="hiddenPresentation({{nb}}, {{nbAnimal}})">&times;</span></button>
-                        <img src="../img/{{animalData.animal.img}}" width="70%" height="200px" class="img-presentation-animal">
+                        <img src="../img/{{animalData.animal.img}}" class="img-presentation-animal">
                         <div class="attrAnimal">
                             <h3 class="margin-40">Prénom: {{animalData.animal.name}}</h3>
                             <h3 class="margin-40">Races: {{animalData.animal.Races.label}}</h3>
