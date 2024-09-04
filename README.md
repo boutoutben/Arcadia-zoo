@@ -13,7 +13,18 @@ Avant de déployer l'application en local, assurez-vous d'avoir les éléments s
 - **Composer** : pour gérer les dépendances PHP.
 - **Yarn** : pour gérer les dépendances front-end.
 - **Mysql** : pour la base de donnée.
+- **Heroku** : pour déployer
 
 ## Installation 
 
-git clone https://github.com/boutoutben/Arcaria-zoo
+git clone https://github.com/boutoutben/Arcaria-zoo/
+heroku login
+heroku create arcadia-zoo
+heroku git:remote -a arcadia-zoo
+heroku buildpacks:add heroku/php
+heroku addons:create jawsdb:kitefin 
+git add .
+git commit -a "commit-name"
+git push heroku main
+
+heroku open
