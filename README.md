@@ -1,6 +1,6 @@
 # Arcadia-zoo
 
-## Description 
+# Description 
 
 Site du zoo arcadia pour les visités et le personnel du zoo. Les visiteurs peuvent avoir un apperçu du zoo pour les persuadé d'y aller. Le personnel peut actualé des services du zoo et s'occuper des animaux. 
 
@@ -18,17 +18,8 @@ Avant de déployer l'application en local, assurez-vous d'avoir les éléments s
 ## Installation 
 
 - git clone https://github.com/boutoutben/Arcaria-zoo
-- composer install
-- heroku login
-- cd Arcaria-zoo
-- git init
-- heroku create arcadia-zoo
-- heroku git:remote -a arcadia-zoo
-- heroku buildpacks:add heroku/php
-- heroku addons:create jawsdb:kitefin 
-- heroku config:set DATABASE_URL="JAWSDB_URL": pour l'avoir, il faut faire heroku config
-- heroku config:set APP_ENV=prod	
-- git add .
-- git commit -a "commit-name"
-- git push heroku main
-- heroku open
+
+
+## URL 
+
+http://arcadia-zoo-2dfc8dd05b76.herokuapp.com/
