@@ -1,7 +1,5 @@
 # Arcadia-zoo
 
-# Description 
-
 Site du zoo arcadia pour les visités et le personnel du zoo. Les visiteurs peuvent avoir un apperçu du zoo pour les persuadé d'y aller. Le personnel peut actualé des services du zoo et s'occuper des animaux. 
 
 ## Prérequis
