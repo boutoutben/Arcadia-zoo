@@ -34,9 +34,10 @@
 .link-navbar{
     border: 1px solid black;
     width: 20%;
+    height: 5vh;
     text-align: center;
     font-size: 2vw;
-    align-content: center;
+    padding-top: 2vw;
 }
 
 .link-navbar:hover{
