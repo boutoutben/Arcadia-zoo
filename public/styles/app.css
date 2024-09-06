@@ -1,32 +1,27 @@
 /*navbar*/
 
 .navbar{
-    background-color: #292929;
-    color: white;
     display: flex;
     flex-direction: row;
+    background-color: #292929;
+    color: white;
     width: 100%;
     padding: 0;
 }
 
 .logo{
     width: 4%;
-    height: 5vh;
 }
 
 .zoo_name{
-    position: absolute;
-    margin-left: 3%;
-    width: 21%;
+    width: 19%;
     font-size: 25px;
     text-align: center;
 }
 
 .link{
-    position: absolute;
     display: flex;
     width: 77%;
-    margin-left: 23%;
     height: 100%;
     background-color: rgb(255, 255, 225, .2);
 } 
@@ -34,10 +29,10 @@
 .link-navbar{
     border: 1px solid black;
     width: 20%;
-    height: 5vh;
-    text-align: center;
     font-size: 2vw;
-    padding-top: 2vw;
+    text-align: center;
+    align-items: center;
+    padding: auto 0;
 }
 
 .link-navbar:hover{
