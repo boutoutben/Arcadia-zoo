@@ -9,36 +9,77 @@
     padding: 0;
 }
 
-.logo{
-    width: 4%;
+
+
+@media screen and (max-width:1000px) {
+    .logo{
+        width: 6vw;
+    }
+    .zoo_name{
+        width: 19%;
+        font-size: 2vh;
+        margin-right: 67%;
+        text-align: center;
+    }
+   .btn-menu{
+    width: 8vw;
+    margin-right: 2%;
+    } 
+    .link{
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        margin-left: -32%;
+    }
+    .link-navbar{
+        width: 40vw;
+        height: 8vw;
+        text-align: center;
+        z-index: 10;
+        font-size: 5vw;
+        background-color: #6A6161;
+        border: black solid 2px;
+    }
 }
 
-.zoo_name{
-    width: 19%;
-    font-size: 25px;
-    text-align: center;
+@media screen and (min-width: 1000px) {
+    .logo{
+        width: 4%;
+    }
+    .zoo_name{
+        width: 19%;
+        font-size: 25px;
+        text-align: center;
+    }
+    .btn-menu{
+        display: none;
+    }
+    .linkAndMenu{
+        width: 77%;
+    }
+    .link{
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        background-color: #6A6161;
+    }
+    
+    .link-navbar{
+        border: 1px solid black;
+        width: 20%;
+        font-size: 2vw;
+        text-align: center;
+        align-items: center;
+        padding: auto 0;
+    }
+    
+    .link-navbar:hover{
+       border: white solid 2px; 
+       cursor: pointer;
+    }
 }
 
-.link{
-    display: flex;
-    width: 77%;
-    height: 100%;
-    background-color: rgb(255, 255, 225, .2);
-} 
 
-.link-navbar{
-    border: 1px solid black;
-    width: 20%;
-    font-size: 2vw;
-    text-align: center;
-    align-items: center;
-    padding: auto 0;
-}
-
-.link-navbar:hover{
-   border: white solid 2px; 
-   cursor: pointer;
-}
 
 /*présentation du zoo*/
 
@@ -66,41 +107,61 @@
 }
 
 /*element to do*/
+@media screen and (min-width:1000px){
+    .ele-zoo{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto;
+        gap: 60px 10%;
+        margin: 0 8%;
+        text-align: center;
+        color: white;
+    }
+    .grid-items{
+        border: 3px solid black;
+        background-color: rgb(45,61,48,0.85);
+    }
+    .description-grid{
+        font-size: 30px;
+        margin: 25px 5%;
+    }
+    
+    .habitats{
+        grid-column: 1;
+        grid-row: 1/ span 2;
+    }
+    
+    .animaux{
+        grid-column: 2;
+        grid-row: 1 /span 2;
+    }
+    
+    .services{
+        grid-column: 1/span 2;
+        grid-row: 3/ span 4;
+    }
+}
 
-.ele-zoo{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: auto;
-    gap: 60px 10%;
-    margin: 0 8%;
-    text-align: center;
-    color: white;
-}
-.grid-items{
-    border: 3px solid black;
-}
-.description-grid{
-    font-size: 25px;
-    margin: 25px 5%;
-}
-
-.habitats{
-    grid-column: 1;
-    grid-row: 1/ span 2;
-    background-color: rgb(45,61,48,0.85);
+@media screen and (max-width:1000px){
+    .ele-zoo{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: auto;
+        gap: 60px 10%;
+        margin: 0 8%;
+        text-align: center;
+        color: white;
+    }
+    .grid-items{
+        border: 3px solid black;
+        background-color: rgb(45,61,48,0.85);
+    }
+    .description-grid{
+        font-size: 30px;
+        margin: 25px 5%;
+    }
 }
 
-.animaux{
-    grid-column: 2;
-    grid-row: 1 /span 2;
-    background-color: rgb(41,61,48,0.85);
-}
-
-.services{
-    grid-column: 1/span 2;
-    grid-row: 3/ span 4;
-    background-color: rgb(41,61,48,0.85);
-}
 
 .scheduleDiv{
     background-color: rgba(41, 61, 48, 0.85);
@@ -166,7 +227,7 @@
     background-color: rgb(167, 167, 167);
     display: flex;
     margin: 10px 100px;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .avis .pseudo{
@@ -223,19 +284,37 @@
 }
 
 /*services page*/ 
-.allEle{
-    display: grid;
-    grid-template-columns: repeat(2, 45%);
-    grid-template-rows: auto;
-    grid-gap: 100px 10%;
-    color: white;
-    margin: 0 8%;
-    
-}
+@media screen and (min-width: 1000px) {
+    .allEle{
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        grid-template-rows: auto;
+        grid-gap: 100px 10%;
+        color: white;
+        margin: 0 8%;
+        
+    }
 
-.grid-ele{
-    background-color: rgb(41, 61, 48, 0.85);
-    padding: 1% 0 3% 0;
+    .grid-ele{
+        background-color: rgb(41, 61, 48, 0.85);
+        padding: 1% 0 3% 0;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .allEle{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        grid-gap: 100px 10%;
+        color: white;
+        margin: 0 8%;
+        
+    }
+
+    .grid-ele{
+        background-color: rgb(41, 61, 48, 0.85);
+        padding: 1% 0 3% 0;
+    }
 }
 
 
@@ -247,24 +326,43 @@
 
 
 /*habitats page*/
-.allHabitats{
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(3,29%);
-    grid-template-rows: auto;
-    grid-gap: 100px 7.5%;
-    margin: 50px 10%;
-
+@media screen and (min-width: 1000px) {
+    .allHabitats{
+        color: white;
+        display: grid;
+        grid-template-columns: repeat(3,29%);
+        grid-template-rows: auto;
+        grid-gap: 100px 7.5%;
+        margin: 50px 10%;
+    
+    }
+    
+    .habitat{
+        background-color: rgb(163,150,150,0.73);
+        padding: 25px 0;
+    }
+    .habitat:hover{
+        cursor: pointer;
+        border: white solid 3px;
+    }
+}
+@media screen and (max-width:1000px) {
+    .allHabitats{
+        color: white;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto;
+        grid-gap: 100px 7.5%;
+        margin: 50px 10%;
+    
+    }
+    
+    .habitat{
+        background-color: rgb(163,150,150,0.73);
+        padding: 25px 0;
+    }
 }
 
-.habitat{
-    background-color: rgb(163,150,150,0.73);
-    padding: 25px 0;
-}
-.habitat:hover{
-    cursor: pointer;
-    border: white solid 3px;
-}
 
 .habitatImg{
     border-radius: 50%;
@@ -503,7 +601,7 @@
 }
 
 .choice{
-    width: 250px;
+    width: 50%;
     height: 50px;
     border: 2px solid black;
     background-color: #395429;

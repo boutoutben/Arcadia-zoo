@@ -44,24 +44,27 @@ session_start();
             <div class="navbar">
                 <img src='../../img/logo.png' class="logo">
                 <h3 class='zoo_name'>arcadia zoo</h3>
-                <div class="link">
-                    <div class="link-navbar" onClick = "window.location.href = `/`;"> Accueil</div>
-                    <div class="link-navbar" onClick = "window.location.href = '/services';">Services</div>
-                    <div class="link-navbar" onClick = "window.location.href=`/habitats`;">Habitats</div>
-                    {% if is_granted('ROLE_VETERINAIRE') or is_granted("ROLE_EMPLOYER") %}
-                        <div class="link-navbar" onClick = "window.location.href = '/logout';">Déconnection</div>
-                    {% else %}
-                        <div class="link-navbar" onClick = "window.location.href = '/login';">Connection</div>
-                    {% endif %}
-                    {% if is_granted("ROLE_ADMINISTRATION") %}
-                        <div class="link-navbar" onClick="window.location.href = '/administration';">Espace administration</div>
-                    {% elseif (is_granted("ROLE_EMPLOYER" ))and not(is_granted("ROLE_ADMINISTRATION")) %}
-                         <div class="link-navbar" onClick = "window.location.href = `/employee`;">Espace employée</div>
-                    {% elseif (is_granted("ROLE_VETERINAIRE" ))and not(is_granted("ROLE_ADMINISTRATION")) %}
-                         <div class="link-navbar" onClick = "window.location.href = `/veterinaire`;">Espace vétérinaire</div>
-                    {% else %}
-                        <div class="link-navbar" onClick = "window.location.href = `/message_zoo`;">Contact</div>
-                    {% endif %} 
+                <div class="linkAndMenu">
+                    <img src="../../img/btn-menu.png" class="btn-menu" onClick="showAndHideLink()">
+                    <div class="link">
+                        <div class="link-navbar" onClick = "window.location.href = `/`;"> Accueil</div>
+                        <div class="link-navbar" onClick = "window.location.href = '/services';">Services</div>
+                        <div class="link-navbar" onClick = "window.location.href=`/habitats`;">Habitats</div>
+                        {% if is_granted('ROLE_VETERINAIRE') or is_granted("ROLE_EMPLOYER") %}
+                            <div class="link-navbar" onClick = "window.location.href = '/logout';">Déconnection</div>
+                        {% else %}
+                            <div class="link-navbar" onClick = "window.location.href = '/login';">Connection</div>
+                        {% endif %}
+                        {% if is_granted("ROLE_ADMINISTRATION") %}
+                            <div class="link-navbar" onClick="window.location.href = '/administration';">Espace administration</div>
+                        {% elseif (is_granted("ROLE_EMPLOYER" ))and not(is_granted("ROLE_ADMINISTRATION")) %}
+                            <div class="link-navbar" onClick = "window.location.href = `/employee`;">Espace employée</div>
+                        {% elseif (is_granted("ROLE_VETERINAIRE" ))and not(is_granted("ROLE_ADMINISTRATION")) %}
+                            <div class="link-navbar" onClick = "window.location.href = `/veterinaire`;">Espace vétérinaire</div>
+                        {% else %}
+                            <div class="link-navbar" onClick = "window.location.href = `/message_zoo`;">Contact</div>
+                        {% endif %} 
+                    </div>
                 </div>
             </div>
         {% endblock body %}
@@ -76,5 +79,6 @@ session_start();
                 </div>
             </div>
         {% endblock footer %}
+        <script src="../js/btn-menu.js"></script>
     </body>
 </html>
