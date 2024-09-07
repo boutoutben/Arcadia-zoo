@@ -377,9 +377,10 @@
     margin:50px 8%;
 }
 
-.icon-50{
+.cross{
     justify-self: end;
     margin-left: 50px;
+    width: 5vw;
 }
 
 .habitatImg{
