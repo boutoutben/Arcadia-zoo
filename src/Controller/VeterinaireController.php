@@ -62,7 +62,7 @@ class VeterinaireController extends AbstractController
             if($animal != null)
             {
                 $rapport_veteriniaire = new RapportVeterinaire();
-                $rapport_veteriniaire->setDetail($rapport);
+                $rapport_veteriniaire->setDetail(htmlspecialchars($rapport));
                 
                 $rapport_veteriniaire->setAnimal($animal);
 
@@ -94,7 +94,7 @@ class VeterinaireController extends AbstractController
             $habitat = $this->allHabitatsRepository->findOneBy(["name"=> $nameHabitat]);
             if($habitat != null)
             {
-                $habitat->setCommentaire($commentaire);
+                $habitat->setCommentaire(htmlspecialchars($commentaire));
                 $em->flush();
 
                 return new RedirectResponse(

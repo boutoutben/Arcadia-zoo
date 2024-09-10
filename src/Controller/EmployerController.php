@@ -64,8 +64,8 @@ class EmployerController extends AbstractController
         if(isset($date) && isset($nourriture) && isset($quantitee) && $date != "" && $nourriture != "" && $quantitee != "")
         {
             $animal->setDate($dataConvert);
-            $animal->setNourriture($nourriture);
-            $animal->setQuantitee($quantitee);
+            $animal->setNourriture(htmlspecialchars($nourriture));
+            $animal->setQuantitee(htmlspecialchars($quantitee));
 
 
             $em->flush();

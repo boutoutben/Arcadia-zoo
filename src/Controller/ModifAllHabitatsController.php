@@ -89,11 +89,12 @@ class ModifAllHabitatsController extends AbstractController
                 // Success logic here
             } catch (FileException $e) {
                 // Handle exception if something happens during file upload
+                
             }
 
         if(isset($name)&& isset($description)&&isset($image)){
-            $habitats->setName($name);
-            $habitats->setDescription($description);
+            $habitats->setName(htmlspecialchars($name));
+            $habitats->setDescription(htmlspecialchars($description));
             $habitats->setImg($image->getClientOriginalName());
 
             $em->persist($habitats);
@@ -121,11 +122,11 @@ class ModifAllHabitatsController extends AbstractController
             if($habitats != null)
             {
                 if($name != ""){
-                    $habitats->setName($name);
+                    $habitats->setName(htmlspecialchars($name));
     
                 }
                 if($description != ""){
-                    $habitats->setDescription($description);
+                    $habitats->setDescription(htmlspecialchars($description));
                 }
                 if(isset($image)){
                     try {

@@ -94,8 +94,8 @@ class ModifAnimauxController extends AbstractController
             }
 
         if(isset($name)&& isset($etat)&&isset($race)){
-            $animal->setName($name);
-            $animal->setEtat($etat);
+            $animal->setName(htmlspecialchars($name));
+            $animal->setEtat(htmlspecialchars($etat));
             $animal->setImg($image->getClientOriginalName());
             $now = new DateTime();
             $animal->setDate($now);
@@ -144,18 +144,18 @@ class ModifAnimauxController extends AbstractController
             if($animal != null)
             {
                 if($name != ""){
-                    $animal->setName($name);
+                    $animal->setName(htmlspecialchars($name));
     
                 }
                 if($etat != ""){
-                    $animal->setEtat($etat);
+                    $animal->setEtat(htmlspecialchars($etat));
                 }
                 if($race != "" && $raceToChange != "")
                 {
                     $raceEntity = $this->RacesRepository->findOneBy(['label'=> $raceToChange]);
                     if($race != null)
                     {
-                        $raceEntity->setLabel($race);
+                        $raceEntity->setLabel(htmlspecialchars($race));
                     }
                     
                 }

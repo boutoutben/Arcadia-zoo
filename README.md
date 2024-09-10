@@ -7,7 +7,7 @@ Site du zoo arcadia pour les visités et le personnel du zoo. Les visiteurs peuv
 Avant de déployer l'application en local, assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
 - **Git** : pour cloner le dépôt.
-- **PHP 7.4+** : pour exécuter l'application.
+- **PHP 8.0+** : pour exécuter l'application.
 - **Composer** : pour gérer les dépendances PHP.
 - **Yarn** : pour gérer les dépendances front-end.
 - **Mysql** : pour la base de donnée.

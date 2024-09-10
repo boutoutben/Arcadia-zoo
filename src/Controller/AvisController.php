@@ -46,8 +46,6 @@ class AvisController extends AbstractController
          // Check if the form is submitted and valid
         if ($form->isSubmitted()) {
             // Set additional properties if needed (not required here since the form handles it)
-            dump($form->get('pseudo')->getData());
-            dump($request->request->all());
             //dd($form->getErrors(true));
             if($form->isValid())
             {
