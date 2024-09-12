@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240823092860
+final class Version20240823092861
  extends AbstractMigration
 {
     public function getDescription(): string
@@ -20,7 +20,7 @@ final class Version20240823092860
 
     public function up(Schema $schema): void
     {
-        $this->addSql("ALTER TABLE animal DROP nb_click");
+        $this->addSql('DELETE FROM animal WHERE name="Jiji"');
     }
 
 }
