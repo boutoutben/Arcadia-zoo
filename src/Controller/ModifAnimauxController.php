@@ -117,7 +117,7 @@ class ModifAnimauxController extends AbstractController
                 $animal->setRace($raceEntity);
             }
             
-            $collection = (new MongoDB\Client("mongodb://localhost:27017"))->arcadia->animal;
+            $collection = (new MongoDB\Client("mongodb+srv://boutoutben:<db_password>@cluster0.kmaplqi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"))->arcadia->animal;
             $collection->insertOne(['name'=>$name,"race"=>$race, "nbClick"=>0]);
             $em->persist($animal);
             $em->flush();
@@ -222,7 +222,7 @@ class ModifAnimauxController extends AbstractController
                     }
                 }
             }
-            (new MongoDB\Client("mongodb://localhost:27017"))->arcadia->animal->deleteOne(["name"=>$nameToDelete]);
+            (new MongoDB\Client("mongodb+srv://boutoutben:<db_password>@cluster0.kmaplqi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"))->arcadia->animal->deleteOne(["name"=>$nameToDelete]);
             $em->remove($animal);
             $em->flush();
     
