@@ -24,6 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Validator\Constraints\Date;
+use MongoDB;
 
 #[Route('/modifAnimaux', name: 'app_modif_animaux_')]
 class ModifAnimauxController extends AbstractController
@@ -99,7 +100,6 @@ class ModifAnimauxController extends AbstractController
             $animal->setImg($image->getClientOriginalName());
             $now = new DateTime();
             $animal->setDate($now);
-            $animal->setNbClick(0);
             if($this->RacesRepository->findOneBy(['label' => $race]) == null)
             {
                 $raceEntity->setLabel($race);
@@ -117,7 +117,8 @@ class ModifAnimauxController extends AbstractController
                 $animal->setRace($raceEntity);
             }
             
-
+            $collection = (new MongoDB\Client("mongodb://localhost:27017"))->arcadia->animal;
+            $collection->insertOne(['name'=>$name,"race"=>$race, "nbClick"=>0]);
             $em->persist($animal);
             $em->flush();
 
@@ -221,6 +222,7 @@ class ModifAnimauxController extends AbstractController
                     }
                 }
             }
+            (new MongoDB\Client("mongodb://localhost:27017"))->arcadia->animal->deleteOne(["name"=>$nameToDelete]);
             $em->remove($animal);
             $em->flush();
     

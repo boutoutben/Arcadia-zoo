@@ -11,6 +11,7 @@ use App\Entity\Animal;
 use App\Entity\Races;
 use App\Repository\AnimalRepository;
 use App\Repository\RacesRepository;
+use MongoDB;
 
 class AnimalController extends AbstractController
 {
@@ -54,7 +55,7 @@ class AnimalController extends AbstractController
       return $this->render('animalsHabitat/index.html.twig', [
          "habitat" => $habitat,
          "animalData" => $animalData,
-         "nbAnimal" => $nbAnimal
+         "nbAnimal" => $nbAnimal,
       ]);
    }
 }

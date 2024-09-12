@@ -10,8 +10,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
-
+use MongoDB;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Validator\Constraints\Date;
 
@@ -57,25 +57,25 @@ class AdministrationPageController extends AbstractController
         
         $allAnimaux = $this->animalRepository->findAll();
 
+        $nbClicks = (new MongoDB\Client("mongodb://localhost:27017"))->arcadia->animal->find();
+
         return $this->render('administration_page/index.html.twig', [
             "form" => $form,
             "rapportVeterinaire" => $rapportVeterinaire,
             "filterAvisAdministration" => $filterAvisAdministration,
             "allAnimaux" => $allAnimaux,
+            "nbClicks" => $nbClicks
         ]);
     }
 
-    #[Route("click/{id}", "app_click")]
-    public function Click($id, EntityManagerInterface $em, Request $request): Null
+    #[Route("click/{name}", "app_click")]
+    public function Click($name, EntityManagerInterface $em, Request $request)
     {
-        $animal = $this->animalRepository->findOneBy(["id" => $id]);
-        $nbClick = $animal->getNbClick();
-        $animal->setNbClick($nbClick + 1 );
-        $em->flush();
-        
-        header('Location: ' . $_SERVER["HTTP_REFERER"] );
-        usleep(7000000);
-        exit;
-        
+        $collection = (new MongoDB\Client("mongodb://localhost:27017"))->arcadia->animal;
+        $collection->findOneAndUpdate(
+            ["name"=>$name],
+            ['$inc'=>["nbClick"=>1]],
+        );
+        return new Response('<script>window.history.back();</script>');   
     }
 }

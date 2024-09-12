@@ -67,10 +67,10 @@
         <div class='dashbord'>
             <h1 class="sub-title">Dashbord du nombre de click par animal</h1>
             <div class="viewAnimaux">
-                {% for animal in allAnimaux %}
+                {% for animal in nbClicks %}
                     <div class="detailForVet">
-                        <p class="text-center">{{animal.name}}: {{animal.Races.label}}</p>
-                        <p class="text-center"> {{animal.nbClick}}</p>
+                        <p class="text-center">{{animal["name"]}}:{{animal["race"]}}</p>
+                        <p class="text-center"> {{animal["nbClick"]}}</p>
                     </div>
                 {% endfor %}
             </div>

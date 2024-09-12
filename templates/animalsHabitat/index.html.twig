@@ -36,7 +36,7 @@
                             {% endif %}  
                         </div>
                     </div>
-                    <div class="animal text-center" onClick="presentation({{nb}},{{nbAnimal}}, {{animalData.animal.id}})">
+                    <div class="animal text-center" onClick="presentation({{nb}},{{nbAnimal}}, '{{animalData.animal.name}}')">
                         <img src="../img/{{animalData.animal.img}}" width="200px" height="200px" class="img-animal">
                         <h3>{{animalData.animal.name}}</h3>
                         <p>{{animalData.animal.Races.label}}</p>

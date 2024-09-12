@@ -50,8 +50,6 @@ class Animal
     #[ORM\JoinColumn(name:'id_last_rapport',referencedColumnName:'id', unique:false)]
     private ?RapportVeterinaire $LastRapport = null;
 
-    #[ORM\Column]
-    private ?int $nbClick = null;
 
 
     public function getId(): ?int
@@ -158,17 +156,6 @@ class Animal
     public function setLastRapport(RapportVeterinaire|null $lastRapport): self
     {
         $this->LastRapport = $lastRapport;
-        return $this;
-    }
-
-    public function getNbClick(): ?int
-    {
-        return $this->nbClick;
-    }
-
-    public function setNbClick(int $nbClick): static
-    {
-        $this->nbClick = $nbClick;
         return $this;
     }
 

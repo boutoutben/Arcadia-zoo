@@ -2,6 +2,7 @@
   "devDependencies": {
     "@eslint/compat": "^1.1.0",
     "@eslint/js": "^9.6.0",
+    "@symfony/webpack-encore": "^4.7.0",
     "bootstrap": "^5.3.3",
     "eslint": "^9.6.0",
     "eslint-plugin-react": "^7.34.3",
@@ -141,6 +142,7 @@
     "merge2": "^1.4.1",
     "micromatch": "^4.0.7",
     "minimatch": "^3.1.2",
+    "mongodb": "^6.8.1",
     "ms": "^2.1.2",
     "natural-compare": "^1.4.0",
     "object-assign": "^4.1.1",
