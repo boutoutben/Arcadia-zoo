@@ -21,14 +21,20 @@ class ModifAnimalCreateType extends AbstractType
                 'label' => 'name: ',
                 'required' => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                    'title' => "Le nom doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ )",
+                    "placeholder" => "Nom"
                 ]
             ])
             ->add('etat', TextType::class, [
                 'label' => 'etat: ',
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_.,:!?-]{3,250}$', // HTML5 pattern attribute for client-side validation
+                'title' => "L'état doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ . , : ! ? -)",
+                "placeholder" => "etat"
                 ]
             ])
 
@@ -36,7 +42,10 @@ class ModifAnimalCreateType extends AbstractType
                 "label" => "race: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_-]{3,150}$', // HTML5 pattern attribute for client-side validation
+                    'title' => "La race doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ -)",
+                    "placeholder" => "race de l'animal"
                 ]
             ])
 

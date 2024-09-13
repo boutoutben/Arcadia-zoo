@@ -17,21 +17,30 @@ class MessageZooType extends AbstractType
         $builder
             ->add('emailUser', EmailType::class,[
                 'attr' => [
-                    'class' => "form-champ"
+                    'class' => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_.@-]{3,100}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le pseudo doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (. @ _ -)',
+                    "placeholder"=>"user@gmail.com"
                 ],
                 "label"=> "Votre email: ",
                 "required" => true
             ])
             ->add('titleMessage',TextType::class,[
                 'attr' => [
-                    'class' => "form-champ"
+                    'class' => "form-champ",
+                    'pattern' => "^[a-zA-Z0-9_']{3,20}$", // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le pseudo doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants( _ )',
+                    "placeholder"=>"titre du message"
                 ],
                 "label"=>"titre: ",
                 "required" => true
             ])
-            ->add('message', TextareaType::class, [
+            ->add('message', TextType::class, [
                 'attr' => [
-                    'class' => "form-textarea"
+                    'class' => "form-textarea",
+                    'pattern' => '^[a-zA-Z0-9_.,:!?]{3,20}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le message doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants ( _ . , : ! ?)',
+                    "placeholder"=>"Mettez votre message"
                 ],
                 "label"=>"message: ",
                 "required"=>true

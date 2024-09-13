@@ -19,18 +19,21 @@ class FilterAvisAdministrationType extends AbstractType
                 "label"=> "nom de l'animal: ",
                 "required" => false,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_]{3,50}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le nom doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (_)',
+                    "placeholder"=>"Nom"
                 ]
             ])
-            ->add("date", DateType::class, [
+            ->add("date", TextType::class, [
                 "label" => "date: ",
                 "required" => false,
                 "attr" => [
                     "class" => "form-champ",
-                    "placeholder"=> "année-mois-jour"
+                    "pattern" => "^[0-9]{4}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$",
+                    "title"=>"La date doit être sous le format années-mois-jour",
+                    "placeholder"=> "année-mois-jour",
                 ],
-                'widget' => 'single_text',
-                'html5' => false,
             ])
         ;
     }

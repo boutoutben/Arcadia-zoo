@@ -19,18 +19,27 @@ class ModifServicesUpdateType extends AbstractType
                 "required" => true,
                 'attr' => [
                     'class' => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le nom doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (_)',
+                    "placeholder" => "nom à changer"
                     ]])
             ->add('name', TextType::class, [
                 'label'=>"name: ",
                 "required" => false,
                 'attr' => [
                     'class' => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le nom doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (_)',
+                    "placeholder"=>"nouveau nom"
                     ]])
             ->add('description',TextType::class, [
                 'label'=>"description: ",
                 "required" => false,
                 'attr' => [
                     'class' => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_.,:!?-]{3,255}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'La description doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (_ . , : ! ? -)',
+                    "placeholder" => "mettez la nouvelle description"
                     ]])
             ->add('image', FileType::class, [
                 "required" => false,

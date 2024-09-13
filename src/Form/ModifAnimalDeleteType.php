@@ -20,7 +20,10 @@ class ModifAnimalDeleteType extends AbstractType
                 "label" => "nom de l'animal à supprimer: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_ -]{3,150}$', // HTML5 pattern attribute for client-side validation
+                    'title' => "Le nom doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ -)",
+                    "placeholder" => "Nom à supprimer"
                 ]
             ])
         ;

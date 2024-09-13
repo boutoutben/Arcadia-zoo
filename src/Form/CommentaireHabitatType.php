@@ -16,14 +16,20 @@ class CommentaireHabitatType extends AbstractType
                 "label" => "nom de l'habitat: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le nom doit être composé uniquement de chaine de charactère et de chiffres',
+                    "placeholder"=>"nom de l'habitat"
                 ]
             ])
             ->add("commentaire", TextType::class, [
                 "label" => "commentaire: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-textarea",
+                    'pattern' => '^[a-zA-Z0-9_.,:!?]{3,500}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le pseudo doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants',
+                    "placeholder"=>"Mettez votre commentaire"
                 ]
             ])
         ;

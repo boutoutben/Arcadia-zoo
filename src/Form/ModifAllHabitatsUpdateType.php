@@ -20,18 +20,27 @@ class ModifAllHabitatsUpdateType extends AbstractType
             "required" => true,
             'attr' => [
                 'class' => "form-champ",
+                'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                'title' => "Le nom doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ )",
+                "placeholder" => "Nom à changer"
                 ]])
             ->add('name', TypeTextType::class,[
                 'label'=>"name: ",
                 "required"=> false,
                 'attr' => [
                     'class' => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                    'title' => "Le nom doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ )",
+                    "placeholder" => "Nouveau nom"
                     ]])
             ->add('description',TextareaType::class,[
                 'label'=>"description: ",
                 "required"=>false,
                 'attr' => [
                     'class' => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_.,!:?-]{3,300}$', // HTML5 pattern attribute for client-side validation
+                    'title' => "La description doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ . , : ! - ? )",
+                    "placeholder" => "mettez la description"
                     ]])
             ->add("image",FileType::class, [
                 'label'=> "image: ",

@@ -21,21 +21,30 @@ class ModifAnimalUpdateType extends AbstractType
             "label" => "name de l'animal à changer: ",
             "required" => true, 
             "attr" => [
-                "class" => "form-champ"
+                "class" => "form-champ",
+                'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                'title' => "Le nom doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ )",
+                "placeholder" => "Nom à changer"
             ]
         ])
         ->add('name', TextType::class, [
             'label' => 'name: ',
             'required' => false,
             "attr" => [
-                "class" => "form-champ"
+                "class" => "form-champ",
+                'pattern' => '^[a-zA-Z0-9_]{3,150}$', // HTML5 pattern attribute for client-side validation
+                'title' => "Le nom doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _ )",
+                "placeholder" => "Nouveau nom"
             ]
         ])
         ->add('etat', TextType::class, [
             'label' => 'etat',
             "required" => false,
             "attr" => [
-                "class" => "form-champ"
+                "class" => "form-champ",
+                'pattern' => "^[a-zA-Z0-9_.,!:-?']{3,150}$", // HTML5 pattern attribute for client-side validation
+                'title' => "L'état doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _  . , : ! ? - ')",
+                "placeholder" => "Nouvelle état"
             ]
         ])
 
@@ -43,7 +52,10 @@ class ModifAnimalUpdateType extends AbstractType
             "label" => "nom de la race à modifier",
             "required" => false,
             "attr" => [
-                "class" => "form-champ"
+                "class" => "form-champ",
+                'pattern' => '^[a-zA-Z0-9_-]{3,150}$', // HTML5 pattern attribute for client-side validation
+                'title' => "La race doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _  -)",
+                "placeholder" => "Race à changer"
             ]
         ])
 
@@ -51,7 +63,10 @@ class ModifAnimalUpdateType extends AbstractType
             "label" => "race",
             "required" => false,
             "attr" => [
-                "class" => "form-champ"
+                "class" => "form-champ",
+                'pattern' => '^[a-zA-Z0-9_-]{3,150}$', // HTML5 pattern attribute for client-side validation
+                'title' => "La race doit être composé uniquement de chaine de charactère, de chiffres et de certaines caractère spécial ( _  -)",
+                "placeholder" => "Nouvelle race"
             ]
         ])
 

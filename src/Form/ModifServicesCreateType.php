@@ -19,15 +19,21 @@ class ModifServicesCreateType extends AbstractType
             "required" => true,
             'attr' => [
                 'class' => "form-champ",
-                ]])
+                'pattern' => '^[a-zA-Z0-9_]{3,50}$', // HTML5 pattern attribute for client-side validation
+                'title' => 'Le nom doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (_)',
+                "placeholder"=>'nom'
+            ]])
             ->add('description',TextType::class, [
                 'label'=>"description: ",
-            "required" => true,
-            'attr' => [
-                'class' => "form-champ",
+                "required" => true,
+                'attr' => [
+                    'class' => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_.,:-!?]{3,50}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'La description doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (_ . , : - ! ?)',
+                    'placeholder' => "description"
                 ]])
             ->add('image', FileType::class, [
-            "required" => true,
+                "required" => true,
             ])
         ;
     }

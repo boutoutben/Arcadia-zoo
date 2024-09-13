@@ -39,8 +39,8 @@ class AvisController extends AbstractController
         $form->handleRequest($request);
         $pseudo = $request->request->get("pseudo");
         $avis = $request->request->get("avis");
-        $Avis->setPseudo(htmlspecialchars($pseudo));
-        $Avis->setAvis(htmlspecialchars($avis));
+        $Avis->setPseudo($pseudo);
+        $Avis->setAvis($avis);
         $Avis->setValid(false);
 
          // Check if the form is submitted and valid

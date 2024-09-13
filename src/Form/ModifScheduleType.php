@@ -16,14 +16,18 @@ class ModifScheduleType extends AbstractType
                 "label" => "jour: ",
                 "required" => true, 
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z]{3,20}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le nom doit être composé uniquement de chaine de charactère',
+                    "placeholder"=>"lundi"
                 ]
             ])
             ->add("schedule", TextType::class, [
                 "label" => "Horraires de la journée: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    "placeholder"=> "19h30-20h"
                 ]
             ])
         ;

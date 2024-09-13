@@ -19,22 +19,26 @@ class NourrirAnimalType extends AbstractType
                 'label' => "date: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
                 ]
             ])
             ->add("nourriture", TextType::class,[
                 "label" => "Nourriture données: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9]{3,50}$', // HTML5 pattern attribute for client-side validation
+                    'title' => "Le nom de la nourrire doit être composé uniquement de chaine de charactère et de chiffres",
+                    "placeholder" => "poisson"
                 ]
             ])
 
             ->add("quantitee", IntegerType::class, [
-                "label" => "Quantitées: ",
+                "label" => "Quantitées(g): ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    "placeholder" => "100"
                 ]
             ])
         ;

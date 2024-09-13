@@ -86,7 +86,15 @@ class ModifAnimauxController extends AbstractController
         $race = $request->request->get("race");
         $image = $request->files->get("image");
         $uploadDir = $this->getParameter('upload_directory');
-            
+        if ($image) {
+            // Validate file type server-side
+            $allowedExtensions = ['jpg', 'jpeg', 'png'];
+            $extension = strtolower($image->getClientOriginalExtension());
+
+            if (!in_array($extension, $allowedExtensions)) {
+                return $this->render('bundles/TwigBundle/Exception/FileError.html.twig');
+            }
+        }
             try {
                 $image->move($uploadDir, $image->getClientOriginalName());
                 // Success logic here
@@ -161,6 +169,15 @@ class ModifAnimauxController extends AbstractController
                     
                 }
                 if(isset($image)){
+                    if ($image) {
+                        // Validate file type server-side
+                    $allowedExtensions = ['jpg', 'jpeg', 'png'];
+                    $extension = strtolower($image->getClientOriginalExtension());
+        
+                    if (!in_array($extension, $allowedExtensions)) {
+                        return $this->render('bundles/TwigBundle/Exception/FileError.html.twig');
+                    }
+                }
                     try {
                         $image->move($uploadDir, $image->getClientOriginalName());
                         // Success logic here

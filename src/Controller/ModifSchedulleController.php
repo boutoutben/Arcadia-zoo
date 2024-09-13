@@ -47,7 +47,7 @@ class ModifSchedulleController extends AbstractController
         if(isset($day) && isset($schedule))
         {
             $schedules = $this->ScheduleRepository->findOneBy(["days" => $day]);
-            if($schedule != null)
+            if($schedules != null)
             {
                 $schedules->setSchedule($schedule);
 

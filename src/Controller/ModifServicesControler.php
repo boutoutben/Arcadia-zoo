@@ -77,6 +77,16 @@ class ModifServicesControler extends AbstractController
         $description = $request->request->get("description");
         $image = $request->files->get("image");
         $uploadDir = $this->getParameter('upload_directory');
+
+        if ($image) {
+                // Validate file type server-side
+            $allowedExtensions = ['jpg', 'jpeg', 'png'];
+            $extension = strtolower($image->getClientOriginalExtension());
+
+            if (!in_array($extension, $allowedExtensions)) {
+                return $this->render('bundles/TwigBundle/Exception/FileError.html.twig');
+            }
+        }
             
             try {
                 $image->move($uploadDir, $image->getClientOriginalName());
@@ -98,6 +108,7 @@ class ModifServicesControler extends AbstractController
             );
         }
     }
+
 
     #[Route('/update', name: 'update')]
     public function update(Request $request, EntityManagerInterface $em):Response
@@ -121,6 +132,16 @@ class ModifServicesControler extends AbstractController
                     $services->setDescription(htmlspecialchars($description));
                 }
                 if(isset($image)){
+                    if ($image) {
+                        // Validate file type server-side
+                        $allowedExtensions = ['jpg', 'jpeg', 'png'];
+                        $extension = strtolower($image->getClientOriginalExtension());
+            
+                        if (!in_array($extension, $allowedExtensions)) {
+                            return $this->render('bundles/TwigBundle/Exception/FileError.html.twig');
+                        }
+                    }
+                  
                     try {
                         $image->move($uploadDir, $image->getClientOriginalName());
                         // Success logic here

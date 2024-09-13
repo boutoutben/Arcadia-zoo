@@ -57,7 +57,7 @@ class AdministrationPageController extends AbstractController
         
         $allAnimaux = $this->animalRepository->findAll();
 
-        $nbClicks = (new MongoDB\Client(getenv('MONGODB_URI')))->arcadia->animal->find();
+        $nbClicks = (new MongoDB\Client($_ENV['MONGODB_URI'] ?? getenv('MONGODB_URI')))->arcadia->animal->find();
 
         return $this->render('administration_page/index.html.twig', [
             "form" => $form,
@@ -71,7 +71,7 @@ class AdministrationPageController extends AbstractController
     #[Route("click/{name}", "app_click")]
     public function Click($name, EntityManagerInterface $em, Request $request)
     {
-        $collection = (new MongoDB\Client(getenv('MONGODB_URI')))->arcadia->animal;
+        $collection = (new MongoDB\Client($_ENV['MONGODB_URI'] ?? getenv('MONGODB_URI')))->arcadia->animal;
         $collection->findOneAndUpdate(
             ["name"=>$name],
             ['$inc'=>["nbClick"=>1]],

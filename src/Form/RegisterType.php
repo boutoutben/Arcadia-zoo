@@ -35,7 +35,10 @@ class RegisterType extends AbstractType
                 "label"=>'username: ',
                 "required"=>true,
                 "attr" => [
-                    "class" => "form-champ"
+                    "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_.@]{3,100}$', // HTML5 pattern attribute for client-side validation
+                    'title' => "L'username doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (. @ _ -)",
+                    "placeholder"=>"user@gmail.com"
                 ]
                 
             ])
@@ -44,7 +47,10 @@ class RegisterType extends AbstractType
                 "required"=>true,
                 "attr" => [
                     "class" => "form-champ",
-                    "id"=>"password"
+                    "id"=>"password",
+                    "pattern" => "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$",
+                    "title" => "Le mot de passe doit contenir au moins une miniscule, un majuscule, un caractère spécials et un chiffre",
+                    "placeholder" => "mot de passe"
                 ]
             ])
         ;

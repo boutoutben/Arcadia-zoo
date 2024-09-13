@@ -83,7 +83,15 @@ class ModifAllHabitatsController extends AbstractController
         $description = $request->request->get("description");
         $image = $request->files->get("image");
         $uploadDir = $this->getParameter('upload_directory');
-            
+        if ($image) {
+            // Validate file type server-side
+            $allowedExtensions = ['jpg', 'jpeg', 'png'];
+            $extension = strtolower($image->getClientOriginalExtension());
+
+            if (!in_array($extension, $allowedExtensions)) {
+                return $this->render('bundles/TwigBundle/Exception/FileError.html.twig');
+            }
+        }
             try {
                 $image->move($uploadDir, $image->getClientOriginalName());
                 // Success logic here
@@ -129,6 +137,15 @@ class ModifAllHabitatsController extends AbstractController
                     $habitats->setDescription(htmlspecialchars($description));
                 }
                 if(isset($image)){
+                    if ($image) {
+                        // Validate file type server-side
+                        $allowedExtensions = ['jpg', 'jpeg', 'png'];
+                        $extension = strtolower($image->getClientOriginalExtension());
+            
+                        if (!in_array($extension, $allowedExtensions)) {
+                            return $this->render('bundles/TwigBundle/Exception/FileError.html.twig');
+                        }
+                    }
                     try {
                         $image->move($uploadDir, $image->getClientOriginalName());
                         // Success logic here

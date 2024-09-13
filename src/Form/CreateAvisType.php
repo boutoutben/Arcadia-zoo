@@ -19,16 +19,22 @@ class CreateAvisType extends AbstractType
         $builder
             ->add('pseudo', TextType::class, [
                 'label' => "pseudo: ",
-                "required" => true,
+                "required" => false,
                 "attr" => [
                     "class" => "form-champ",
+                    'pattern' => '^[a-zA-Z0-9_]{3,20}$', // HTML5 pattern attribute for client-side validation
+                    'title' => 'Le pseudo doit être composé uniquement de chaine de charactère, de chiffres et des charactère suivants (. , : ! ?)' ,
+                    "placeholder"=>"pseudo"
                 ],
             ])
-            ->add('avis', TextareaType::class, [
+            ->add('avis', TextType::class, [
                 "label" => "avis: ",
                 "required" => true,
                 "attr" => [
-                    "class" => "form-champ",
+                    "class" => "form-textarea",
+                    'pattern' => "^[a-zA-Z0-9 ,.:!']{3,100}$",
+                    "title"=> "L'avis peut être composé que de chaine de charactère, de nombre et des charactères suivants (. , : ! ?)",
+                    "placeholder" => 'avis'
                 ],
             ])
         ;
