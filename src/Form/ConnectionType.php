@@ -31,6 +31,7 @@ class ConnectionType extends AbstractType
             'label' => "username: ",
             'attr' => [
                 'class' => "form-champ",
+                "placeholder"=>"username"
             ],
         ])
             ->add('password',PasswordType::class,[
@@ -39,6 +40,7 @@ class ConnectionType extends AbstractType
                     'name' => "password"
                 ],
                 'label' => "mot de passe: ",
+                "placeholder"=>"mot de passe"
             ])
         ;
     }
