@@ -18,7 +18,7 @@
     .zoo_name{
         width: 19%;
         font-size: 2em;
-        margin-right: 56%;
+        margin-right: 62%;
         text-align: center;
     }
    .btn-menu{
@@ -27,8 +27,8 @@
     background-color: white;
     } 
     .link{
-        position: absolute;
         display: none;
+        position: absolute;
         flex-direction: column;
         margin-left: -30%;
     }
