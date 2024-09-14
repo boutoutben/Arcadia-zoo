@@ -383,7 +383,6 @@
     width: 5vw;
 }
 .cross:hover{
-    border: white solid 2px;
     cursor: pointer;
 }
 
