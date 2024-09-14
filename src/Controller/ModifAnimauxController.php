@@ -104,7 +104,7 @@ class ModifAnimauxController extends AbstractController
 
         if(isset($name)&& isset($etat)&&isset($race)){
             $animal->setName(htmlspecialchars($name));
-            $animal->setEtat(htmlspecialchars($etat));
+            $animal->setEtat($etat);
             $animal->setImg($image->getClientOriginalName());
             $now = new DateTime();
             $animal->setDate($now);
@@ -157,7 +157,7 @@ class ModifAnimauxController extends AbstractController
     
                 }
                 if($etat != ""){
-                    $animal->setEtat(htmlspecialchars($etat));
+                    $animal->setEtat($etat);
                 }
                 if($race != "" && $raceToChange != "")
                 {

@@ -102,7 +102,7 @@ class ModifAllHabitatsController extends AbstractController
 
         if(isset($name)&& isset($description)&&isset($image)){
             $habitats->setName(htmlspecialchars($name));
-            $habitats->setDescription(htmlspecialchars($description));
+            $habitats->setDescription($description);
             $habitats->setImg($image->getClientOriginalName());
 
             $em->persist($habitats);
@@ -134,7 +134,7 @@ class ModifAllHabitatsController extends AbstractController
     
                 }
                 if($description != ""){
-                    $habitats->setDescription(htmlspecialchars($description));
+                    $habitats->setDescription($description);
                 }
                 if(isset($image)){
                     if ($image) {

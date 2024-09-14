@@ -97,7 +97,7 @@ class ModifServicesControler extends AbstractController
 
         if(isset($name)&& isset($description)&&isset($image)){
             $services->setName(htmlspecialchars($name));
-            $services->setDescription(htmlspecialchars($description));
+            $services->setDescription($description);
             $services->setImg($image->getClientOriginalName());
 
             $em->persist($services);
@@ -129,7 +129,7 @@ class ModifServicesControler extends AbstractController
 
                 }
                 if($description != ""){
-                    $services->setDescription(htmlspecialchars($description));
+                    $services->setDescription($description);
                 }
                 if(isset($image)){
                     if ($image) {
