@@ -34,6 +34,9 @@ security:
         - {path: ^/administration, roles: ROLE_ADMINISTRATION}
         - {path: ^/employee, roles: ROLE_EMPLOYER}
         - {path: ^/veterinaire, roles: ROLE_VETERINAIRE}
+        - {path: ^/modifServices, roles: [ROLE_ADMINISTRATION,ROLE_EMPLOYER]}
+        - {path: ^/modifAllHabitats, roles: ROLE_ADMINISTRATION}
+        - {path: ^/modifAnimaux, roles: ROLE_ADMINISTRATION}
 
 when@test:
     security:
