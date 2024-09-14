@@ -382,6 +382,10 @@
     margin-left: 50px;
     width: 5vw;
 }
+.cross:hover{
+    border: white solid 2px;
+    cursor: pointer;
+}
 
 .habitatImg{
     width: 20vw;
