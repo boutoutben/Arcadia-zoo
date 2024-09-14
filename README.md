@@ -11,6 +11,7 @@ Avant de déployer l'application en local, assurez-vous d'avoir les éléments s
 - **Composer** : pour gérer les dépendances PHP.
 - **Yarn** : pour gérer les dépendances front-end.
 - **Mysql** : pour la base de donnée.
+- **MongoDB**: pour la base de données no sql.
 - **Heroku** : pour déployer
 
 ## Installation 
