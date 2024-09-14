@@ -16,6 +16,7 @@ Site du zoo arcadia pour les visités et le personnel du zoo. Les visiteurs peuv
 - heroku buildpacks:add heroku/php
 - heroku addons:create jawsdb:kitefin
 - heroku config:set DATABASE_URL = "JAWSDB_URL": On l'obtient avec la commande heroku config
+- heroku config:set MONGODB_URL = "Votre url mongondb: mongodb+srv://username:password@cluster0.mongodb.net/mydatabase?retryWrites=true&w=majority"
 - git add .
 - git commit -am "commit_name"
 - git push heroku main
