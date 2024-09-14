@@ -621,7 +621,8 @@
     background-color: #479558;
     display: flex;
     flex-direction: row;
-    margin: 0 3%;
+    width: 80%;
+    margin: 0 20vw;
 }
 
 .rapportDate{

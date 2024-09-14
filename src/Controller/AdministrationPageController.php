@@ -57,14 +57,14 @@ class AdministrationPageController extends AbstractController
         
         $allAnimaux = $this->animalRepository->findAll();
 
-        $nbClicks = (new MongoDB\Client($_ENV['MONGODB_URI'] ?? getenv('MONGODB_URI')))->arcadia->animal->find();
+        //$nbClicks = (new MongoDB\Client($_ENV['MONGODB_URI'] ?? getenv('MONGODB_URI')))->arcadia->animal->find();
 
         return $this->render('administration_page/index.html.twig', [
             "form" => $form,
             "rapportVeterinaire" => $rapportVeterinaire,
             "filterAvisAdministration" => $filterAvisAdministration,
             "allAnimaux" => $allAnimaux,
-            "nbClicks" => $nbClicks
+            //"nbClicks" => $nbClicks
         ]);
     }
 
