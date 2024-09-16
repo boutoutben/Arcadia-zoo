@@ -23,7 +23,6 @@ final class Version20240823092801 extends AbstractMigration
         $this->addSql('CREATE TABLE all_habitats (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description TINYTEXT NOT NULL, img VARCHAR(255) NOT NULL, commentaire VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE animal (id INT AUTO_INCREMENT NOT NULL, id_habitat INT DEFAULT NULL, id_race INT DEFAULT NULL, id_last_rapport INT DEFAULT NULL, name VARCHAR(255) NOT NULL, etat VARCHAR(255) NOT NULL, img VARCHAR(255) NOT NULL, date DATETIME DEFAULT NULL, nourriture VARCHAR(255) DEFAULT NULL, quantitee INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE avis (id INT AUTO_INCREMENT NOT NULL, pseudo VARCHAR(255) NOT NULL, avis VARCHAR(510) NOT NULL, is_valid TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE message_zoo (id INT AUTO_INCREMENT NOT NULL, email_user VARCHAR(255) NOT NULL, title_message VARCHAR(255) NOT NULL, message LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE races (id INT AUTO_INCREMENT NOT NULL, label VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE rapport_veterinaire (id INT AUTO_INCREMENT NOT NULL, id_animal INT DEFAULT NULL, date DATETIME NOT NULL, detail VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE schedule (id INT AUTO_INCREMENT NOT NULL, days VARCHAR(255) NOT NULL, schedule VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -38,7 +37,6 @@ final class Version20240823092801 extends AbstractMigration
         $this->addSql('DROP TABLE all_habitats');
         $this->addSql('DROP TABLE animal');
         $this->addSql('DROP TABLE avis');
-        $this->addSql('DROP TABLE message_zoo');
         $this->addSql('DROP TABLE races');
         $this->addSql('DROP TABLE rapport_veterinaire');
         $this->addSql('DROP TABLE schedule');
